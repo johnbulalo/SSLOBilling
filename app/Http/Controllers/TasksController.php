@@ -45,16 +45,44 @@ class TasksController extends Controller
         $tasks->tasksHours = request('hours');
         $tasks->tasksDone = request('task');
 
-        $tasks->save();
+        //$tasks->save();
 
-        return redirect('/tasks');
+        if ( ! $tasks->save())
+        {
+        //App::abort(500, 'Error');
+        return redirect('/home')->with('mssg', 'Error saving task');
+        }
+
+        //User got saved show OK message
+        //return Response::json(array('success' => true, 'user_added' => 1), 200);
+
+        return redirect('/home')->with('mssg', 'Task has been uploaded');
     }
+    // public function multipleStore(){
+
+    //     $tasks = new Tasks();
+
+    //     $tasks->tasksCase = request('case');
+    //     $tasks->tasksClient = request('client');
+    //     $tasks->tasksType = request('type');
+    //     $tasks->tasksLawyer = request('lawyer');
+    //     $tasks->tasksDate = request('date');
+    //     $tasks->tasksHours = request('hours');
+    //     $tasks->tasksDone = request('task');
+
+    //     if ( ! $tasks->save())
+    //     {
+    //     //App::abort(500, 'Error');
+    //     return redirect('/home')->with('mssg', 'Error saving task');
+    //     }
+    // }
 
     public function getClient(){
 
         $client = new Client();
 
-        $client = Billing::table('cases')->where('casesName', $caseName)->value('casesClient');
+        $client = Billing::table('cases')->where('casesName', $caseName)
+                                         ->value('casesClient');
 
         return Redirect::to('client')->withInput();
     }

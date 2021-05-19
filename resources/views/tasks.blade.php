@@ -21,15 +21,18 @@
                 <div class="container">
                     <div class="text-center">
                         <h2 class="section-heading text-uppercase" style="padding-top:3%">Tasks</h2>
+                        <div class="notification">
+                            <p class="mssg">{{ session('mssg') }}</p>
+                        </div>
                         <h3 class="section-subheading text-muted"></h3>
                     </div>
-                    <form id="taskForm" action="/tasks" method="POST" name="storeTask" novalidate="novalidate">
+                    <form id="taskForm" action="/tasks" method="POST" name="storeTask" >
                         @csrf 
                         <div class="row align-items-stretch mb-5">
                             <div class="col-md-6">
                                 <div class="form-group" id="case">
-                                    <select class="form-control" name="case" id="case" type="text" placeholder="Case *" required="required" data-validation-required-message="Please select Case.">
-                                        <option value="" disabled selected>Select Case</option>
+                                    <select class="form-control" name="case" id="case" type="text" placeholder="Case *" required data-validation-required-message="Please select Case.">
+                                        <option value="" disabled selected required>Select Case</option>
                                         @foreach ($cases as $case)
                                         <option value="{{ $case->casesName }}">{{ $case->casesNumber }}-{{ $case->casesName }}</option>
                                         @endforeach
@@ -38,11 +41,11 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="client" value="{{ $case->casesClient }}" readonly='true' id="client" type="text" placeholder="Client *" required="required" data-validation-required-message="Please enter Client." />
+                                    <input class="form-control" name="client" value="{{ $case->casesClient }}" readonly='true' id="client" type="text" placeholder="Client *" required data-validation-required-message="Please enter Client." />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" name="type" id="type" type="text" placeholder="Type *" required="required" data-validation-required-message="Please select Type.">
+                                    <select class="form-control" name="type" id="type" type="text" placeholder="Type *" required data-validation-required-message="Please select Type.">
                                         <option value="" disabled selected>Select Type</option>
                                         <option value="General Matters">General Matters</option>
                                         <option value="Corporate Secretary">Corporate Secretary</option>
@@ -51,23 +54,30 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="lawyer" id="lawyer" type="text" value="{{ Auth::user()->name }}" placeholder="Lawyer *" required="required" data-validation-required-message="Please enter Lawyer Name." />
+                                    {{-- <input class="form-control" name="lawyer" id="lawyer" type="text" value="{{ Auth::user()->name }}" placeholder="Lawyer *" required data-validation-required-message="Please enter Lawyer Name." />
+                                    <p class="help-block text-danger"></p> --}}
+                                    <select class="form-control" name="lawyer" id="lawyer" type="text" placeholder="Lawyer *" required data-validation-required-message="Please select Type.">
+                                        <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+                                        <option value="Manuel C. Carlos">Manuel C. Carlos</option>
+                                        <option value="Larry L. Tanlu">Larry L. Tanlu</option>
+                                        <option value="Daniel C. Vega">Daniel C. Vega</option>
+                                        <option value="Jose Z. Aliling">Jose Z. Aliling</option>
+                                    </select>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="row align-items-stretch mb-5">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="date" name="date" class="form-control" id="date" placeholder="Date *" required="required" data-validation-required-message="Please select Date." />
+                                            <input type="date" name="date" class="form-control" id="date" placeholder="Date *" required data-validation-required-message="Please select Date." />
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-md-0">
-                                            <input class="form-control" name="hours" id="hours" type="number" placeholder="Hours *" required="required" data-validation-required-message="Please enter Hours." />
+                                            <input class="form-control" name="hours" id="hours" type="number" placeholder="Hours *" step="any" required data-validation-required-message="Please enter Hours." />
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
-                                    
                                 </div>
                                 
                             </div>
@@ -86,12 +96,23 @@
                                 
                                 </div>
                                 <div class="text-right" style="padding-top:10%">
-                                    <div id="success"></div>
-                                    <button class="btn btn-primary btn-lg text-uppercase" id="uploadTaskButton" type="submit">Upload Task</button>
+                                    <div class="row align-items-stretch mb-5" style="padding-left: 40%">
+                                        {{-- <div class="col-md-6" style="text-align:right; float: right;">
+                                            <div id="success"></div>
+                                            <a class="btn-lg text-uppercase" style="padding-left:20%; float: right;" href="">Add Task</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="success"></div>
+                                            <button class="btn btn-primary btn-lg text-uppercase" id="uploadTaskButton" type="submit">Upload Task</button>
+                                        </div> --}}
+                                        <div id="success"></div>
+                                        <a class="btn-lg text-uppercase" style="padding-left:20%; float: right;" href="{{ url('multipleStore') }}">Add Task</a>
+                                        <div id="success"></div>
+                                        <button class="btn btn-primary btn-lg text-uppercase" id="uploadTaskButton" type="submit">Upload Task</button>
+                                    </div>   
                                 </div>
                             </div>
                         </div>
-                        
                     </form>
                 </div>
             </section>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,20 @@ use App\Http\Controllers\TasksController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect::to('home');
 });
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/search', [HomeController::class, 'filterTask']);
+
+Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
 
 Route::get('/tasks', [TasksController::class, 'index']);
 
 Route::post('/tasks', [TasksController::class, 'store']);
 
-Auth::routes();
 
-Route::get('/tasks', [App\Http\Controllers\TasksController::class, 'index'])->name('tasks ');
+// Route::post('/tasks', [TasksController::class, 'multipleStore']);

@@ -64,9 +64,9 @@
                     <table style="color: #fff;">
                         <th>
                             <tr>
-                                <th> Case</th>
-                                <th> Type</th>
-                                <th> Date</th>
+                                <th style="width:20%"> Case</th>
+                                <th style="width:25%"> Type</th>
+                                <th style="width:20%"> Date</th>
                                 <th> Action</th>
                             </tr>
                         </th>
@@ -77,7 +77,7 @@
                                   <td> {{$task->tasksType}} </td>
                                   <td> {{$task->tasksDate}} </td>
                                   <td> 
-                                    <a class="btn btn-primary" data-toggle="modal" href="#teamModal6" style="background-color: green; margin:5px">{{ __('View') }}</a>  
+                                    <a class="btn btn-primary" data-toggle="modal" href="#tasksViewModal" style="background-color: green; margin:5px">{{ __('View') }}</a>  
                                     <a class="btn btn-primary" href="/tasks" style="margin:5px">{{ __('Edit') }}</a>  
                                     <a class="btn btn-primary" href="/tasks" style="background-color: red; margin:5px">{{ __('Delete') }}</a>  
                                   </td>
@@ -90,10 +90,7 @@
         </div>
     </section>
 </div>
-
-
-
-<div class="portfolio-modal modal fade" id="teamModal6" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="tasksView-modal modal fade" id="tasksViewModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div> -->
@@ -102,15 +99,16 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h3 class="section-heading">De la Rosa, Martin Vergel C.</h3>
-                            <h5 class="text-muted">Associate</h4>
+                            <h3 class="section-heading">Task View</h3>
+                            <h5 class="text-muted"></h4><br>
                             <div class="col-lg-10 mx-auto pharagraph-content-justify">
-                                <ul>
-                                    <li>Admitted to the Philippine Bar in 1998</li>
-                                    <li>Specializing in Corporate Rehabilitation, Corporate Practice, Commercial, Civil, Criminal and Labor Litigation and Appellate Practice</li>
-                                    <li>Took his Tertiary Education at the Ateneo de Manila University</li>
-                                    <li>Earned his Bachelor of Laws degree at the Ateneo de Manila University School of Law and the Arellano Law Foundation, where he was a consistent Dean’s Lister</li>
-                                </ul>
+                                <label style="color: #212529">Case:</label>
+                                <p></p>
+                                <label style="color: #212529">Client:</label><br>
+                                <label style="color: #212529">Type:</label><br>
+                                <label style="color: #212529">Date:</label><br>
+                                <label style="color: #212529">Hours</label><br>
+                                <label style="color: #212529">Task Done:</label><br>
                             </div>
                             <!-- <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" /> -->
                             <p></p>
@@ -129,5 +127,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>     
 @endsection

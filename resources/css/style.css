@@ -164,7 +164,7 @@ sup {
 
 a {
   color: #fed136;
-  text-decoration: none;
+  text-decoration: none!important;
   background-color: transparent;
 }
 a:hover {
@@ -212,6 +212,10 @@ svg {
 
 table {
   border-collapse: collapse;
+  padding: 15px;
+  border-spacing: 15px;
+  width: 100%;
+  position: left;
 }
 
 caption {
@@ -225,6 +229,8 @@ caption {
 th {
   text-align: inherit;
   text-align: -webkit-match-parent;
+  padding: 5px;
+  border-spacing: 15px;
 }
 
 label {
@@ -1670,6 +1676,7 @@ pre code {
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
+  table-layout:fixed
 }
 .table th,
 .table td {
@@ -10328,6 +10335,92 @@ header.masthead .masthead-heading {
 .portfolio-modal .close-modal:hover {
   opacity: 0.3;
 }
+/* View */
+#tasksView .tasksView-item {
+  max-width: 16rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tasksView .tasksView-item .tasksView-link {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+#tasksView .tasksView-item .tasksView-link .tasksView-hover {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(254, 209, 54, 0.9);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity ease-in-out 0.25s;
+}
+#tasksView .tasksView-item .tasksView-link .tasksView-hover .tasksView-hover-content {
+  font-size: 1.25rem;
+  color: white;
+}
+#tasksView .tasksView-item .tasksView-link:hover .tasksView-hover {
+  opacity: 1;
+}
+#tasksView .tasksView-item .tasksView-caption {
+  padding: 1.25rem;
+  text-align: center;
+  background-color: #fff;
+  height: 5rem;
+}
+#tasksView .tasksView-item .tasksView-caption .portfolio-caption-heading {
+  font-size: 1rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 600;
+  margin-bottom: 0;
+}
+#tasksView .tasksView-item .tasksView-caption .tasksView-caption-subheading {
+  font-style: italic;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.tasksView-modal .modal-dialog {
+  margin: 0 auto;
+  max-width: 50vw;
+  padding-top: 5%;
+}
+.tasksView-modal .modal-content {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  text-align: center;
+}
+.tasksView-modal .modal-content h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+.tasksView-modal .modal-content p.item-intro {
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.tasksView-modal .modal-content p {
+  margin-bottom: 2rem;
+}
+.tasksView-modal .modal-content ul.list-inline {
+  margin-bottom: 2rem;
+}
+.tasksView-modal .modal-content img {
+  margin-bottom: 2rem;
+}
+.tasksView-modal .close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+.tasksView-modal .close-modal:hover {
+  opacity: 0.3;
+}
 /* Container needed to position the overlay. Adjust the width as needed */
 .team-container {
   position: relative;
@@ -10572,6 +10665,26 @@ section#task {
   /* background-image: url("/img/law/thomas.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
+}
+section#task .tasks-list {
+  margin: 10px 0;
+  padding: 10px;
+  background: #f4f4f4;
+  color: #000;
+}
+section#task .img{
+  display: inline-block!important;
+}
+section#task .h4{
+  display: inline-block!important;
+  margin-left: 5px;
+  padding-top: 5px;
+} 
+section#task .a{
+  margin-left: 5px;
+  padding-top: 5px;
+  color: #000!important;
+  text-decoration: none!important;
 }
 section#task .section-heading {
   color: #fff;

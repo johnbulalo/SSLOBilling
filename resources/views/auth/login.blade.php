@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">            
-    <section class="page-section" id="task">
+    <section class="page-section" style="background-color: #212529;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">

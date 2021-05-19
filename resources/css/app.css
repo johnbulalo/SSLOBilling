@@ -204,6 +204,8 @@ svg {
 
 table {
   border-collapse: collapse;
+  padding: 5px;
+  border-spacing: 15px;
 }
 
 caption {
@@ -217,6 +219,8 @@ caption {
 th {
   text-align: inherit;
   text-align: -webkit-match-parent;
+  padding: 5px;
+  border-spacing: 15px;
 }
 
 label {
@@ -5341,6 +5345,14 @@ button.close {
 
 a.close.disabled {
   pointer-events: none;
+}
+
+.notification{
+  /* background-color: #f8f9fa!important; */
+  position:sticky;
+  margin-top: 2%;
+  top: -10;
+  bottom: -10;
 }
 
 .toast {
